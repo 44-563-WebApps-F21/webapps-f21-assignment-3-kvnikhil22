@@ -9,6 +9,99 @@
             <h6>London</h6>
             <p>One of the big reasons why London is my <b>favourite city</b> in the world is because of all of the <b>amazing memories</b> I have in London. 
             London was the very first place where i started my first <b>film</b> and first trip to Europe. That trip totally changed my life and it meant a lot to be able to start it in London.</p>
+        <h3>Directions to travel from Maryvile to London</h3>
+        <ul>
+            <li> Book online tickets to london heathrow airport from kansas city airport through airlines website.</li>
+            <li> go to airport atleast two hours before.</li>
+            <li> If your not done with web-check go to respective flight Checkin counter and do inperson checkin.</li>
+            <li> go to secuity check and have a seat in flight. </li>
+            <li> After long journey you'll reach to the city of magic **London** Heathrow airport. </li>
+        </ul>    
 
+        <h3>Check-List to the trip</h3>
+        <ol>
+            <li>My personal DSLR camera </li>
+            <li>Drone</li>
+            <li>Gimbal</li>
+            <li>laptop</li>
+            <li>snacks </li>
+            <li>Camping Tents</li>
+            <li>Booked tickets confirmation letter (room,flights)</li>
+            <li>cards</li>
+        </ol>
+<a href ="AboutMe.md">ABOUTME</a>
+
+ 
+<table>
+    <tr>
+  <th>Item</th>
+  <th>Location</th>
+  <th>Price</th>
+</tr>
+ <tr>
+  <td>RamkiBandi  </td>
+  <td>Nampally </td>
+  <td>Rs.100 </td>
+</tr>
+<tr>
+ <td>Burger </td>
+ <td>MCD </td>
+ <td>Rs.60</td>
+
+</tr>
+<tr>
+ <td>chicken Biriyani </td>
+ <td>Paradise </td>
+ <td>Rs.500</td>
+
+</tr>
+<tr>
+ <td>Veg Biriyani</td>
+ <td>Bawarchi RTC X-roads</td>
+ <td>Rs.250</td>
+
+</tr>
+</table>
+
+<hr>
+    <h3>Algorithm</h3>
+    <blockquote>The algorithm is more convenient to describe if we assume that the input graph is already split into two parts (although, in fact, the algorithm can be implemented in such a way that the input graph is not explicitly split into two parts).
+
+        The algorithm looks at all the vertices v of the first part of the graph: v=1…n1. If the current vertex v is already saturated with the current matching (i.e., some edge adjacent to it has already been selected), then skip this vertex. Otherwise, the algorithm tries to saturate this vertex, for which it starts a search for an augmenting path starting from this vertex.</blockquote>
+    <a href="https://cp-algorithms.com/graph/kuhn_maximum_bipartite_matching.html#toc-tgt-4"> open source</a>
+    <pre>
+        int n, k;
+        vector<vector<int>> g;
+        vector<int> mt;
+        vector<bool> used;
+        
+        bool try_kuhn(int v) {
+            if (used[v])
+                return false;
+            used[v] = true;
+            for (int to : g[v]) {
+                if (mt[to] == -1 || try_kuhn(mt[to])) {
+                    mt[to] = v;
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        int main() {
+            //... reading the graph ...
+        
+            mt.assign(k, -1);
+            for (int v = 0; v < n; ++v) {
+                used.assign(n, false);
+                try_kuhn(v);
+            }
+        
+            for (int i = 0; i < k; ++i)
+                if (mt[i] != -1)
+                    printf("%d %d\n", mt[i] + 1, i + 1);
+        }
+
+    </pre>
     </body>
 </html>
